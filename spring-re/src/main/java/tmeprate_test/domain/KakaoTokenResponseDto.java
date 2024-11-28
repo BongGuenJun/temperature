@@ -27,3 +27,9 @@ public class KakaoTokenResponseDto {
     public String scope;
 	
 }
+
+
+
+
+    
+
