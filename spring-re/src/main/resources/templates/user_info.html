@@ -22,7 +22,7 @@
         <!-- 생일 출력 -->
         <p><strong>생일:</strong> <span th:text="${userInfo.kakaoAccount.birthDay}"></span></p>
 
-        <p><a href="/">다시 로그인</a></p>
+        <p><a  th:href="@{boardList}">다시 로그인</a></p>
     </div>
 </body>
 </html>
