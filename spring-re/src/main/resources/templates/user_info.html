@@ -13,8 +13,6 @@
         <p><strong>ID:</strong> <span th:text="${userInfo.id}"></span></p>
         <!-- 닉네임 출력 -->
         <p><strong>닉네임:</strong> <span th:text="${userInfo.kakaoAccount.profile.nickName}"></span></p>
-        <!-- 프로필 이미지 출력 -->
-        <img th:src="${userInfo.kakaoAccount.profile.profileImageUrl}" alt="Profile Image" style="width: 100px; height: 100px; border-radius: 50%;"/>
         <!-- 이메일 출력 -->
         <p><strong>이메일:</strong> <span th:text="${userInfo.kakaoAccount.email}"></span></p>
         <!-- 성별 출력 -->
@@ -22,7 +20,7 @@
         <!-- 연령대 출력 -->
         <p><strong>연령대:</strong> <span th:text="${userInfo.kakaoAccount.ageRange}"></span></p>
         <!-- 생일 출력 -->
-        <p><strong>생일:</strong> <span th:text="${userInfo.kakaoAccount.birthday}"></span></p>
+        <p><strong>생일:</strong> <span th:text="${userInfo.kakaoAccount.birthDay}"></span></p>
 
         <p><a href="/">다시 로그인</a></p>
     </div>
