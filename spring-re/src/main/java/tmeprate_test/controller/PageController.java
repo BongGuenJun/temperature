@@ -18,17 +18,32 @@ public class PageController {
     
     @Value("${kakao.redirect_uri}")
     private String redirect_uri;
+    
+    @Value("${naver.client_id}")
+    private String naverClientId;
+
+    @Value("${naver.redirect_uri}")
+    private String naverRedirectUri;
 
     @GetMapping({"/", "/page"})
     public String loginPage(Model model) throws UnsupportedEncodingException {
         // URL 인코딩을 통해 안전하게 파라미터 처리
         String encodedRedirectUri = URLEncoder.encode(redirect_uri, "UTF-8");
         
-        String location = "https://kauth.kakao.com/oauth/authorize?response_type=code"
+        
+        //카카오 로그인 URL 인코딩
+        String kakaoLocation = "https://kauth.kakao.com/oauth/authorize?response_type=code"
                 + "&client_id=" + client_id 
                 + "&redirect_uri=" + encodedRedirectUri;
         
-        model.addAttribute("location", location);
+     // 네이버 로그인 URL 인코딩
+        String encodedNaverRedirectUri = URLEncoder.encode(naverRedirectUri, "UTF-8");
+        String naverLocation = "https://nid.naver.com/oauth2.0/authorize?response_type=code"
+                + "&client_id=" + naverClientId
+                + "&redirect_uri=" + encodedNaverRedirectUri;
+        
+        model.addAttribute("kakaoLocation", kakaoLocation);
+        model.addAttribute("naverLocation", naverLocation);
         
         return "login";  // login.html로 리턴
     }
